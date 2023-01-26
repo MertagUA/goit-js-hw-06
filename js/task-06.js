@@ -1,9 +1,14 @@
 const inputRef = document.querySelector('#validation-input');
-inputRef.addEventListener('blur', () => {
-    inputRef.classList.remove('valid', 'invalid')
-    if (inputRef.value.length === 6) {
+const correctValueOfNumbers = +inputRef.dataset.length;
+
+inputRef.addEventListener('blur', validation)
+
+function validation() {
+     inputRef.classList.remove('valid', 'invalid')
+    if (inputRef.value.length === correctValueOfNumbers) {
         inputRef.classList.add('valid');
-    } else {
+    }
+    else {
         inputRef.classList.add('invalid')
     }
-})
+}
